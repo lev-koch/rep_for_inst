@@ -15,17 +15,25 @@ print(f([0], 0))
 
 # 3
 def f(string, let):
-    return len(string[:string.find(let)]) + string[string.find(let) + 1:].find(let) + 1
+    if string.count(let) > 1:
+        return len(string[:string.find(let)]) + string[string.find(let) + 1:].find(let) + 1
+    return 'нет второго вхождения'
 
-
-print(f('сербанкб', "б"))
+print(f('береке', "е"))
 
 # 4
 def f(num):
     num = str(num)[::-1]
-    return len(num[:num.index('1')])
+    sums = 0
+    i = 0
+    while num[i] == '0':
+        sums += 1
+        i += 1
+        if i == len(num):
+            break
+    return sums
 
-print(f(101100110100))
+print(f(200000))
 
 # 5
 def f(string):
